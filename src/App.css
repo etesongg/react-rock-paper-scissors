@@ -1,6 +1,18 @@
 .box {
-  border: 1px solid black;
+  border: 5px solid black;
   width: 500px;
+  height: 600px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; 
+  margin-bottom: 10px;
+}
+
+.box-result-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .item-img {
@@ -12,6 +24,23 @@
   justify-content: center;
 }
 
-.Win {  border: 5px solid green; }
-.Lose {  border: 5px solid red; }
-.Tie {  border: 5px solid gray; }
+.main > button {
+  margin-right: 5px;
+}
+
+.Tie {  border: 5px solid black; color: black;}
+.Win {  border: 5px solid green; color: green;}
+
+.Lose {  
+  border: 5px solid red; 
+  background: rgb(239, 239, 239);
+  color: red;
+}
+
+.Lose .item-img {
+  filter: grayscale(100%) contrast(70%);
+}
+
+
+
+

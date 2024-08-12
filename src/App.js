@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Button } from 'react-bootstrap';
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Box from "./component/Box";
 
 // 1. 유저는 박스 두개를 볼 수 있다.(타이틀, 사진, 결과).
@@ -61,9 +63,9 @@ function App() {
         <Box title="Computer" item={computerSelect} result={result} />
       </div>
       <div className="main">
-        <button onClick={() => play("scissors")}>가위</button>
-        <button onClick={() => play("rock")}>바위</button>
-        <button onClick={() => play("paper")}>보</button>
+        <Button variant="danger" onClick={() => play("scissors")}>가위</Button>
+        <Button variant="danger" onClick={() => play("rock")}>바위</Button>
+        <Button variant="danger" onClick={() => play("paper")}>보</Button>
       </div>
     </div>
   );
