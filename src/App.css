@@ -15,6 +15,17 @@
   right: 0;
 }
 
+.box.result-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box.result-img img {
+  max-width: 100%;         
+  height: auto;    
+}
+
 .item-img {
   width: 400px;
 }
@@ -33,13 +44,15 @@
 
 .Lose {  
   border: 5px solid red; 
-  background: rgb(239, 239, 239);
+  background: rgb(199, 199, 199);
   color: red;
 }
 
 .Lose .item-img {
   filter: grayscale(100%) contrast(70%);
 }
+
+
 
 
 
