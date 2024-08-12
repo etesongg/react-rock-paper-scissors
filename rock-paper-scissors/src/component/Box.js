@@ -1,13 +1,19 @@
-import React from 'react'
+import React from "react";
 
 const Box = (props) => {
+  let result;
+  if (props.title === "Computer" && props.result !== "Tie" && props.result !== "") {
+    result = props.result === "Win" ? "Lose" : "Win";
+  } else {
+    result = props.result;
+  }
   return (
-    <div className='box'>
+    <div className={`box ${result}`}>
       <h1>{props.title}</h1>
-      <img className='item-img' src='https://helloartsy.com/wp-content/uploads/kids/school/how-to-draw-scissors/how-to-draw-scissors-step-6.jpg'></img>
-      <h2>Win</h2>
+      <img className="item-img" src={props.item && props.item.img}></img>
+      <h2>{result}</h2>
     </div>
-  )
-}
+  );
+};
 
-export default Box
+export default Box;

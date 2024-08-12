@@ -10,31 +10,55 @@ import Box from "./component/Box";
 // 6. 박스 테두리가 결과에 따라 색이 변한다. 지면 빨간색, 이기면 초록색, 비기면 검정색이 보인다.
 
 const choice = {
-  scissors: {
-    name: "Scissors",
-    img: "https://helloartsy.com/wp-content/uploads/kids/school/how-to-draw-scissors/how-to-draw-scissors-step-6.jpg"
-  },
   rock: {
     name: "Rock",
-    img: "https://i.pinimg.com/564x/36/69/e9/3669e921fe419e00ca6dc3d274caeabb.jpg"
+    img: "https://i.pinimg.com/564x/36/69/e9/3669e921fe419e00ca6dc3d274caeabb.jpg",
+  },
+  scissors: {
+    name: "Scissors",
+    img: "https://helloartsy.com/wp-content/uploads/kids/school/how-to-draw-scissors/how-to-draw-scissors-step-6.jpg",
   },
   paper: {
     name: "Paper",
-    img: "https://helloartsy.com/wp-content/uploads/kids/school/how-to-draw-paper/how-to-draw-paper-step-6.jpg"
-  }
-} 
+    img: "https://helloartsy.com/wp-content/uploads/kids/school/how-to-draw-paper/how-to-draw-paper-step-6.jpg",
+  },
+};
 
 function App() {
+  const [userSelect, setUserSelect] = useState(null);
+  const [computerSelect, setComputerSelect] = useState(null);
+  const [result, setResult] = useState("");
 
   const play = (userChoice) => {
-    console.log("선택됨", userChoice)
-  }
+    setUserSelect(choice[userChoice]);
+    let computerChoice = randomChoice();
+    setComputerSelect(computerChoice);
+    setResult(judgement(choice[userChoice], computerChoice));
+  };
+
+  const judgement = (user, computer) => {
+    if (user.name === computer.name) {
+      return "Tie";
+    } else if (user.name === "Rock")
+      return computer.name === "Scissors" ? "Win" : "Lose";
+    else if (user.name === "Paper")
+      return computer.name === "Scissors" ? "Lose" : "Win";
+    else if (user.name === "Scissors")
+      return computer.name === "Rock" ? "Lose" : "Win";
+  };
+
+  const randomChoice = () => {
+    let itemArray = Object.keys(choice); // ['scissors', 'rock', 'paper'] 각 인덱스를 가짐
+    let randomItem = Math.floor(Math.random() * itemArray.length);
+    let final = itemArray[randomItem];
+    return choice[final];
+  };
 
   return (
     <div>
       <div className="main">
-        <Box title="You" />
-        <Box title="Computer" />
+        <Box title="You" item={userSelect} result={result} />
+        <Box title="Computer" item={computerSelect} result={result} />
       </div>
       <div className="main">
         <button onClick={() => play("scissors")}>가위</button>
