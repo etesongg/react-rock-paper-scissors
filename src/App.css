@@ -12,6 +12,20 @@
   position: relative;
   overflow: hidden; 
   margin-bottom: 10px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.box > h2 {
+  grid-row: 1;
+}
+
+.box > img {
+  grid-row: 2;
+}
+
+.box > p {
+  grid-row: 3;
 }
 
 .box-result-area {
@@ -34,6 +48,7 @@
 
 .item-img {
   width: 400px;
+  max-height: 80%;
 }
 
 .main {
@@ -73,12 +88,12 @@
   transform: translate(-50%, -50%);
 }
 
-@media screen {
-  
-}
 @media (min-width: 375px) {
   .box {
     height: 300px;
+  }
+  .item-img {
+    max-height: 70%;
   }
 }
 
