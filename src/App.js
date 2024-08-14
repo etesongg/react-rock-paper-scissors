@@ -47,9 +47,9 @@ function App() {
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
-    let computerChoice = randomChoice();
+    const computerChoice = randomChoice();
     setComputerSelect(computerChoice);
-    let judgementResult = judgement(choice[userChoice], computerChoice);
+    const judgementResult = judgement(choice[userChoice], computerChoice);
     setResult(judgementResult)
     setResultImage(getResultImage(judgementResult))
   };
@@ -76,9 +76,9 @@ function App() {
   };
 
   const randomChoice = () => {
-    let itemArray = Object.keys(choice); // ['scissors', 'rock', 'paper'] 각 인덱스를 가짐
-    let randomItem = Math.floor(Math.random() * itemArray.length);
-    let final = itemArray[randomItem];
+    const itemArray = Object.keys(choice); // ['scissors', 'rock', 'paper'] 각 인덱스를 가짐
+    const randomItem = Math.floor(Math.random() * itemArray.length);
+    const final = itemArray[randomItem];
     return choice[final];
   };
 
